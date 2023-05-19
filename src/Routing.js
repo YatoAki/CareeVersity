@@ -4,6 +4,8 @@ import Home from './HomeComponents/Home';
 import RecruiterLogin from "./RecruiterComponents/Login";
 import RecruiterSignup from "./RecruiterComponents/Signup"
 
+import JobseekerSignup from "./JobseekerComponents/Signup"
+
 const Routing = () => {
 
     return(
@@ -12,7 +14,7 @@ const Routing = () => {
                 <Route path="" element={<Home/>}/>
                 
                 <Route path="/jobseeker/login"/>
-                <Route path="/jobseeker/signup"/>
+                <Route path="/jobseeker/signup" element={<JobseekerSignup/>}/>
                 <Route path="/jobseeker"/>
                 <Route path="/jobseeker/job"/>
                 <Route path="/jobseeker/learn"/>
