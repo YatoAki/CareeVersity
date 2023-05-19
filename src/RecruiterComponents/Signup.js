@@ -159,6 +159,8 @@ const Signup = () => {
           </div>
         </form>
         <Link to={"/recruiter/login"}>Already have an account?</Link>
+        <Link to={"/"} id="backToHome">Back to home</Link>
+        
       </div>
     </div>
   );

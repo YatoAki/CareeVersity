@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Logo from "../assets/Logo.png";
 import { Link } from "react-router-dom";
-
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -53,7 +52,7 @@ const Login = () => {
               <button type="submit">Login</button>
             </div>
           </form>
-          <Link to={"/recruiter/signup"}>Do not have an account yet?</Link>
+          <Link to={"/jobseeker/signup"}>Do not have an account yet?</Link>
           <Link to={"/"} id="backToHome">Back to home</Link>
         </div>
       </div>

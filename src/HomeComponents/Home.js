@@ -14,11 +14,11 @@ const Home = () => {
                 <div className="homeNav">
                     <h3>Are you looking for a</h3>
                     <div className="homeBtns">
-                        <Link to="/jobseeker/signup" className="homeBtn">
+                        <Link to="/jobseeker/login" className="homeBtn">
                             <span>Job</span>
                         </Link>
 
-                        <Link to="/recruiter/signup" className="homeBtn">
+                        <Link to="/recruiter/login" className="homeBtn">
                             <span>Qualified Professonal</span>
                         </Link>
                     </div>

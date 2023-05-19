@@ -16,6 +16,10 @@
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
+.signupCard.Login{
+    gap:30px;
+}
+
 .signupCard .heading{
     display: flex;
     flex-direction: column;
@@ -44,6 +48,10 @@
     justify-content: center;
     align-items: center;
     gap:10px;
+}
+
+.signupCard .inputArea.Login{
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr);
 }
 
 .signupCard .inputArea label{
@@ -84,4 +92,26 @@
     font-size: var(--smallText);
     color: var(--blue);
     font-weight: 500;
+}
+
+.signupCard .loginBtnArea{
+    display: flex;
+    margin-top: 10px;
+}
+
+.signupCard .loginBtnArea button{
+    background-color: var(--blue);
+    font-size: var(--smallText);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    width: 100%;
+    cursor: pointer;
+}
+
+
+#backToHome{
+    text-decoration: underline;
+    font-size: 10px;
 }
