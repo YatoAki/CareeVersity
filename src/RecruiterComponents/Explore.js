@@ -1,9 +1,11 @@
 import React from "react";
-import { getAuth } from "firebase/auth";
+import { useSelector } from "react-redux";
 
 const Explore = () => {
-  const auth = getAuth();
-  const user = auth.currentUser;
+  
+    const user = useSelector(state => state.authReducer)
+    console.log(user)
+    console.log(user)
 
   return (
     <div>

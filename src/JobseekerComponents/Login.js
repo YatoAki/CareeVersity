@@ -2,12 +2,18 @@ import React, { useState } from "react";
 import Logo from "../assets/Logo.png";
 import { Link } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {login} from "../actions/index"
+import { useDispatch } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,7 +33,8 @@ const Login = () => {
         // Signed in 
         const user = userCredential.user;
         console.log(user)
-        window.location.href = '/CareeVersity/jobseeker';
+        dispatch(login(user.uid))
+        navigate('/jobseeker');
         // ...
     })
     .catch((error) => {

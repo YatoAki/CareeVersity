@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 import db from "../Firebase";
 import {  doc, setDoc } from "@firebase/firestore"
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
-
+import { useNavigate } from 'react-router-dom';
+import {login} from "../actions/index"
+import { useDispatch } from "react-redux";
 
 const Signup = () => {
   const initialFormData = {
@@ -19,6 +20,9 @@ const Signup = () => {
     companySize: "",
     linkedin: "",
   };
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [formData, setFormData] = useState(initialFormData);
 
@@ -33,7 +37,7 @@ const Signup = () => {
         linkedin: formData.linkedin
       });
       console.log("Document successfully written!");
-      window.location.href = '/CareeVersity/recruiter';
+      navigate('/recruiter');
     } catch (error) {
       console.error("Error writing document:", error);
     }
@@ -54,6 +58,7 @@ const Signup = () => {
     createUserWithEmailAndPassword(auth, formData.email, formData.password)
       .then((userCredential) => {
         const user = userCredential.user;
+        dispatch(login(user.uid))
         keepUserData(user.uid)
       })
       .catch((error) => {
