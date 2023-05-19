@@ -1,0 +1,86 @@
+.Signup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.signupCard{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    gap:20px;
+    padding: 30px;
+    margin: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.signupCard .heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signupCard .heading img{
+    width: 80px;
+}
+
+.signupCard .heading h1{
+    font-family: var(--titleFont);
+    font-size: var(--bigText);
+}
+
+.signupCard .heading h3{
+    color: var(--blue);
+    font-size: var(--normalText);
+    font-weight: 600;
+    text-align: center;
+}
+
+.signupCard .inputArea{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}
+
+.signupCard .inputArea label{
+    font-size: var(--smallText);
+}
+
+.signupCard .inputArea input, select{
+    padding: 3px 5px;
+    font-size: var(--smallText);
+    border-radius: 5px;
+    border: 1px solid var(--black);
+}
+
+.signupCard .inputArea select{
+    padding: 3px 2px;
+}
+
+
+.signupCard .btnArea{
+    display: flex;
+    justify-content: space-between;
+}
+
+.signupCard .btnArea button{
+    background-color: var(--blue);
+    font-size: var(--smallText);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+
+.signupCard a{
+    text-align: center;
+    font-size: var(--smallText);
+    color: var(--blue);
+    font-weight: 500;
+}
