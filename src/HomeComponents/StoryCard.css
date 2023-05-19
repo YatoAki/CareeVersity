@@ -1,0 +1,32 @@
+.storyCard{
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    width: 80%;
+    max-width: 300px;
+    padding: 50px 30px;
+    margin: 0 auto;
+    border: 5px;
+    
+}
+
+.storyCard img{
+    object-fit: cover;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+}
+
+.storyCard h3{
+    font-size: var(--bigText);
+    font-family: var(--titleFont);
+    color: var(--blue);
+}
+
+.storyCard p{
+    font-size: var(--normalText);
+    color: var(--black);
+}

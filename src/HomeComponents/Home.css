@@ -1,0 +1,58 @@
+
+
+.homeContents{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homeContents h1{
+    font-size: var(--massiveText);
+    font-family: var(--titleFont);
+    margin: 30px 0;
+}
+
+.homeNav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.homeNav > h3{
+    font-size: var(--normalText);
+    font-weight: 600;
+}
+
+.homeBtns{
+    display: flex;
+    gap: 30px;
+}
+
+.homeBtns .homeBtn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--red);
+    border: none;
+    font-family: inherit;
+    width: 90px;
+    padding: 8px;
+    border-radius: 5px;
+    gap:5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.homeBtns .homeBtn:hover{
+    transform: translateY(-5px);
+}
+
+
+.homeBtn span{
+    font-size: var(--smallText);
+    font-weight: 600;
+    text-align: center;
+}
