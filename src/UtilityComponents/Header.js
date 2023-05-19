@@ -31,9 +31,7 @@ const Header = () => {
             </Link>
             <button id="menu" onClick={handleMenuClick}><img src={nav} alt="" /></button>
             <ul className="popUpNav">
-                <Link to="/employee"><li>Explore Jobs</li></Link>
-                <Link to="/employer"><li>Explore Employees</li></Link>
-                <Link to=""><li>Curriculum</li></Link>
+                <Link to=""><li>Contact us</li></Link>
                 <Link to=""><li>About us</li></Link>
                 <Link to=""><li>Partners</li></Link>
                 <Link to=""><li>Privacy Policy</li></Link>
