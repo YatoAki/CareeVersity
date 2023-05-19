@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import "./Signup.css";
 import Logo from "../assets/Logo.png";
 import { Link } from "react-router-dom";
+import db from "../Firebase";
+import {  doc, setDoc } from "@firebase/firestore"
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+
 
 const Signup = () => {
   const initialFormData = {
@@ -17,6 +22,23 @@ const Signup = () => {
 
   const [formData, setFormData] = useState(initialFormData);
 
+  const keepUserData = async (uid) => {
+    try {
+      const docRef = doc(db, "Recruiter", uid);
+      await setDoc(docRef, { 
+        orgName: formData.orgName, 
+        website: formData.website,
+        currentLocation: formData.currentLocation,
+        companySize: formData.companySize,
+        linkedin: formData.linkedin
+      });
+      console.log("Document successfully written!");
+      window.location.href = '/CareeVersity/recruiter';
+    } catch (error) {
+      console.error("Error writing document:", error);
+    }
+  }
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -25,10 +47,18 @@ const Signup = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission with the form data
-    console.log(formData);
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, formData.email, formData.password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        keepUserData(user.uid)
+      })
+      .catch((error) => {
+        console.log(error.code,error.Message)
+      });
   };
 
   const clearForm = () => {
