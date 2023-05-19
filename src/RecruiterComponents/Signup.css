@@ -65,6 +65,7 @@
 .signupCard .btnArea{
     display: flex;
     justify-content: space-between;
+    margin-top: 10px;
 }
 
 .signupCard .btnArea button{
