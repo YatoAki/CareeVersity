@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Home from './HomeComponents/Home';
+import RecruiterLogin from "./RecruiterComponents/Login";
+import RecruiterSignup from "./RecruiterComponents/Signup"
 
 const Routing = () => {
 
@@ -16,8 +18,8 @@ const Routing = () => {
                 <Route path="/jobseeker/learn"/>
                 <Route path="/jobseeker/learn/:id"/>
 
-                <Route path="/recruiter/login" />
-                <Route path="/recruiter/signup"/>
+                <Route path="/recruiter/login" element={<RecruiterLogin/>}/>
+                <Route path="/recruiter/signup" element={<RecruiterSignup/>}/>
                 <Route path="/recruiter"/>
                 <Route path="/recruiter/dashboard"/>
                 <Route path="/recruiter/job"/>
