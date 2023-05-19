@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Logo from "../assets/Logo.png";
 import { Link } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -19,6 +21,21 @@ const Login = () => {
     e.preventDefault();
     // Handle form submission with the form data
     console.log(formData);
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, formData.email, formData.password)
+    .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log(user)
+        window.location.href = '/CareeVersity/jobseeker';
+        // ...
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode,errorMessage)
+    });
+
   };
 
   return (
