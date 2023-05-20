@@ -10,27 +10,29 @@ const Explore = () => {
   return (
     <div className="jobseekerExplore">
       <Header/>
-      <div className="learningProgress">
-        <h2>Your progress</h2>
-        <progress value={10} max="100"></progress>
-        <Link>Continue Learning</Link>
+      <div className = "progressWrap">
+        <div className="learningProgress">
+          <h2>Your progress</h2>
+          <progress value={20} max="100"></progress>
+          <Link className = "buttons">Continue Learning</Link>
+        </div>
       </div>
       <div className="jobCards">
         <div className="jobCard">
-          <img src={profileIcon} alt="" />
-          <h1>Name</h1>
+          <img className = "profilePic" src={profileIcon} alt="" />
+          <h1 className = "userName">Name</h1>
           <p>This will be bio here</p>
         </div>
 
         <div className="jobCard">
-          <img src={profileIcon} alt="" />
-          <h1>Name</h1>
+          <img className = "profilePic" src={profileIcon} alt="" />
+          <h1 className = "userName">Name</h1>
           <p>This will be bio here</p>
         </div>
 
         <div className="jobCard">
-          <img src={profileIcon} alt="" />
-          <h1>Name</h1>
+          <img className = "profilePic" src={profileIcon} alt="" />
+          <h1 className = "userName">Name</h1>
           <p>This will be bio here</p>
         </div>
       </div>
