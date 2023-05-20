@@ -1,44 +1,42 @@
-import "./Job.css"
-import Header from "../UtilityComponents/Header"
+import "./Job.css";
+import Header from "../UtilityComponents/Header";
+import JobCard from "./JobCard";
+import { collection, where, getDocs } from "firebase/firestore";
+import db from "../Firebase";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const Job = () => {
+  const [data, setData] = useState([]);
+  const auth = useSelector((state) => state.authReducer);
 
-    return(
-        <div className="Job">
-            <Header/>
-            <div className="JobCards">
-                <div className="JobCard">
-                    <h3>Fullstack Developer</h3>
-                    <p>We would like a Fullstack developer for our compnay</p>
-                    <ul>
-                        <li>Redux</li>
-                        <li>Node JS</li>
-                        <li>TailwindCSS</li>
-                    </ul>
-                </div>
+  useEffect(() => {
+    loadData();
+  }, []); // Empty dependency array ensures the effect runs only once, similar to componentDidMount
 
-                <div className="JobCard">
-                    <h3>Fullstack Developer</h3>
-                    <p>We would like a Fullstack developer for our compnay</p>
-                    <ul>
-                        <li>Redux</li>
-                        <li>Node JS</li>
-                        <li>TailwindCSS</li>
-                    </ul>
-                </div>
+  const loadData = async () => {
+    try {
+      const query = where("userID", "==", auth.user);
+      const jobData = collection(db, "job");
+      const querySnapshot = await getDocs(jobData);
+      const fetchedData = querySnapshot.docs.map((doc) => doc.data());
+      setData(fetchedData);
+    } catch (error) {
+      console.error("Error fetching job data:", error);
+    }
+  };
 
-                <div className="JobCard">
-                    <h3>Fullstack Developer</h3>
-                    <p>We would like a Fullstack developer for our compnay</p>
-                    <ul>
-                        <li>Redux</li>
-                        <li>Node JS</li>
-                        <li>TailwindCSS</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="Job">
+      <Header />
+      <div className="JobCards">
+        {data.map((info) => {
+            return <JobCard data={info} />
+        })}
+        
+      </div>
+    </div>
+  );
+};
 
-export default Job
+export default Job;

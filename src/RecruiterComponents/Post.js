@@ -23,6 +23,9 @@ const Post = () => {
     { value: 'react-Native', label: 'React-Native' },
     { value: 'Node JS', label: 'Node JS' },
     { value: 'Vue.js', label: 'Vue.js' },
+    { value: 'TailwindCSS', label: 'TailwindCSS' },
+    { value: 'HTML/CSS', label: 'HTML/CSS' },
+    { value: 'Ruby on Rails', label: 'Ruby on Rails' },
     // Add more technology names here
   ];
 
@@ -61,7 +64,8 @@ const Post = () => {
           salaryRange: salaryRange,
           workingHours: workingHours,
           benefits: benefits,
-          selectedTech: selectedTech
+          selectedTech: selectedTech,
+          jobDescription: jobDescription
         });
         navigate("/recruiter/job")
         console.log("Document successfully written!");
