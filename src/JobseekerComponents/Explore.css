@@ -63,6 +63,7 @@
     margin : 5px;
     background-color: var(--white);
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .jobseekerExplore .jobCard:hover{

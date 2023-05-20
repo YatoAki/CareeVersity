@@ -4,14 +4,37 @@ import Header from "../UtilityComponents/Header";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./Explore.css"
+import JobCard from "./JobCard";
+import { useState, useEffect } from "react";
+import { collection, getDocs, query } from "@firebase/firestore";
+import db from "../Firebase";
 
 const Explore = () => {
 
   const navigate = useNavigate()
+  const [data, setData] = useState([]);
   
-  const handleJobClick = () => {
-    navigate("./job")
-  }
+    const handleJobClick = () => {
+      navigate("./job")
+    }
+
+  
+
+    useEffect(() => {
+      loadData();
+    }, []); // Empty dependency array ensures the effect runs only once, similar to componentDidMount
+  
+    const loadData = async () => {
+      try {
+        const q = query(collection(db, "job"));
+        const querySnapshot = await getDocs(q);
+        const fetchedData = querySnapshot.docs.map((doc) => doc.data());
+        console.log(fetchedData)
+        setData(fetchedData);
+      } catch (error) {
+        console.error("Error fetching job data:", error);
+      }
+    };
 
   return (
     <div className="jobseekerExplore">
@@ -24,23 +47,10 @@ const Explore = () => {
         </div>
       </div>
       <div className="jobCards">
-        <div className="jobCard" onClick={handleJobClick}>
-          <img className = "profilePic" src={profileIcon} alt="" />
-          <h1 className = "userName">Name</h1>
-          <p>This will be bio here</p>
-        </div>
-
-        <div className="jobCard" onClick={handleJobClick}>
-          <img className = "profilePic" src={profileIcon} alt="" />
-          <h1 className = "userName">Name</h1>
-          <p>This will be bio here</p>
-        </div>
-
-        <div className="jobCard" onClick={handleJobClick}>
-          <img className = "profilePic" src={profileIcon} alt="" />
-          <h1 className = "userName">Name</h1>
-          <p>This will be bio here</p>
-        </div>
+        {data.map((info) => {
+          return <JobCard data={info}/>
+        })}
+        
       </div>
     </div>
   );
