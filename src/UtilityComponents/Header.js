@@ -4,6 +4,7 @@ import nav from "../assets/nav.png"
 import { Link } from "react-router-dom"
 import { useState,useEffect } from "react"
 import { useSelector } from "react-redux"
+import { getAuth, signOut } from "firebase/auth";
 
 const Header = () => {
 
@@ -13,6 +14,16 @@ const Header = () => {
 
     const handleMenuClick = () => {
         setView(!view)
+    }
+
+    const handleLogout = () => {
+        const auth = getAuth()
+        signOut(auth).then(() => {
+            console.log("success")
+            window.location.href = 'http://localhost:3000/CareeVersity/home';
+          }).catch((error) => {
+            console.log(error)
+          });
     }
 
     useEffect( () => {
@@ -35,7 +46,11 @@ const Header = () => {
             </Link>
             <button id="menu" onClick={handleMenuClick}><img src={nav} alt="" /></button>
             <ul className="popUpNav">
-                {auth.user ? <p>Welcome {user.data.username}</p> : 
+                {auth.user && user.data ? 
+                <>
+                    <p>Welcome {user.data.username}</p>
+                    <a href="" onClick={handleLogout}><li>Logout</li></a>
+                </> : 
                 <>
                 <Link to="/recruiter/login"><li>Recruiter Login</li></Link>
                 <Link to="/jobseeker/login"><li>Jobseeker Login</li></Link>
