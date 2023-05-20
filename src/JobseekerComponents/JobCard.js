@@ -6,7 +6,7 @@ const JobCard = (props) => {
     const navigate = useNavigate()
   
     const handleJobClick = () => {
-        navigate("./job")
+        navigate("./job/" + props.data.uid)
     }
 
     return(
