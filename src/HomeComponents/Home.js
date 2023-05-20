@@ -16,7 +16,7 @@ const Home = () => {
                 <div className="homeNav">
                     <h3>Are you looking for a</h3>
                     <div className="homeBtns">
-                        {user ? 
+                        {user.user ? 
                         <>
                             <Link to="/jobseeker" className="homeBtn">
                                 <span>Job</span>
