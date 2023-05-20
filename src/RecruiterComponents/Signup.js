@@ -34,7 +34,8 @@ const Signup = () => {
         website: formData.website,
         currentLocation: formData.currentLocation,
         companySize: formData.companySize,
-        linkedin: formData.linkedin
+        linkedin: formData.linkedin,
+        type: "recruiter"
       });
       console.log("Document successfully written!");
       navigate('/recruiter');

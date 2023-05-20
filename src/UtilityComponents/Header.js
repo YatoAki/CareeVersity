@@ -8,7 +8,8 @@ import { useSelector } from "react-redux"
 const Header = () => {
 
     const [view, setView] = useState(false)
-    const user = useSelector(state => state.authReducer)
+    const auth = useSelector(state => state.authReducer)
+    const user = useSelector(state => state.userReducer)
 
     const handleMenuClick = () => {
         setView(!view)
@@ -34,7 +35,7 @@ const Header = () => {
             </Link>
             <button id="menu" onClick={handleMenuClick}><img src={nav} alt="" /></button>
             <ul className="popUpNav">
-                {user.user ? <p>Welcome {user.user}</p> : 
+                {auth.user ? <p>Welcome {user.data.username}</p> : 
                 <>
                 <Link to="/recruiter/login"><li>Recruiter Login</li></Link>
                 <Link to="/jobseeker/login"><li>Jobseeker Login</li></Link>

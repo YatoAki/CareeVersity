@@ -34,7 +34,8 @@ const Signup = () => {
         dateOfBirth: formData.dateOfBirth,
         currentLocation: formData.currentLocation,
         role: formData.role,
-        nrcNumber: formData.nrcNumber
+        nrcNumber: formData.nrcNumber,
+        type: "jobseeker"
       });
       console.log("Document successfully written!");
       navigate('/jobseeker');

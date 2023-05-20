@@ -4,7 +4,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { login,setUserData } from "./actions/index";
 import db from './Firebase';
-import { getFirestore, collection, doc, getDoc } from 'firebase/firestore';
+import {collection, doc, getDoc } from 'firebase/firestore';
 
 import Home from './HomeComponents/Home';
 import RecruiterSignup from "./RecruiterComponents/Signup";
@@ -20,7 +20,7 @@ import JobseekerLogin from "./JobseekerComponents/Login";
 const Routing = () => {
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(true);
-
+    const [type, setType] = useState()
     useEffect(() => {
       const auth = getAuth();
       const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -33,6 +33,7 @@ const Routing = () => {
             if (docSnapshot.exists()) {
               const userData = docSnapshot.data();
               console.log(userData);
+              setType(userData.type)
               dispatch(setUserData(userData));
             } else {
               console.log('No user data found!');
@@ -60,17 +61,42 @@ const Routing = () => {
         <BrowserRouter basename='/CareeVersity'>
             <Routes>
                 <Route path="" element={<Home/>}/>
+
                 <Route path="/jobseeker/login" element={<JobseekerLogin/>}/>
                 <Route path="/jobseeker/signup" element={<JobseekerSignup/>}/>
-                <Route path="/jobseeker" element={<JobseekerExplore/>}/>
-                <Route path="/jobseeker/job"/>
-                <Route path="/jobseeker/learn"/>
-                <Route path="/jobseeker/learn/:id"/>
+                {type === "jobseeker" || "admin" ? 
+                <>
+                  <Route path='/jobseeker' element={<JobseekerExplore />} />
+                  <Route path='/jobseeker/job' />
+                  <Route path='/jobseeker/learn' />
+                  <Route path='/jobseeker/learn/:id'/>
+                </>
+                :
+                <>
+                  <Route path='/jobseeker' element={<JobseekerLogin />} />
+                  <Route path='/jobseeker/job' />
+                  <Route path='/jobseeker/learn' />
+                  <Route path='/jobseeker/learn/:id'/>
+                </>
+                }
+
+
                 <Route path="/recruiter/login" element={<RecruiterLogin/>}/>
                 <Route path="/recruiter/signup" element={<RecruiterSignup/>}/>
-                <Route path="/recruiter" element={<RecruiterExplore/>}/>
-                <Route path="/recruiter/dashboard" element={<RecruiterDashboard/>}/>
-                <Route path="/recruiter/job" element={<RecruiterJob/>}/>
+                {type === "recruiter" || "admin" ? 
+                <>
+                  <Route path="/recruiter" element={<RecruiterExplore/>}/>
+                  <Route path="/recruiter/dashboard" element={<RecruiterDashboard/>}/>
+                  <Route path="/recruiter/job" element={<RecruiterJob/>}/>
+                </>
+                :
+                <>
+                  <Route path="/recruiter" element={<RecruiterLogin/>}/>
+                  <Route path="/recruiter/dashboard" element={<RecruiterLogin/>}/>
+                  <Route path="/recruiter/job" element={<RecruiterLogin/>}/>
+                </>
+                }
+                
             </Routes>
         </BrowserRouter>
     );
