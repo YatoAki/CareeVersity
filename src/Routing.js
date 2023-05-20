@@ -67,7 +67,7 @@ const Routing = () => {
 
                 <Route path="/jobseeker/login" element={<JobseekerLogin/>}/>
                 <Route path="/jobseeker/signup" element={<JobseekerSignup/>}/>
-                {type === "jobseeker" || "admin" ? 
+                {type === "jobseeker" || type === "admin" ? 
                 <>
                   <Route path='/jobseeker' element={<JobseekerExplore />} />
                   <Route path='/jobseeker/job' element={<JobseekerJob/>} />
@@ -86,7 +86,7 @@ const Routing = () => {
 
                 <Route path="/recruiter/login" element={<RecruiterLogin/>}/>
                 <Route path="/recruiter/signup" element={<RecruiterSignup/>}/>
-                {type === "recruiter" || "admin" ? 
+                {type === "recruiter" || type === "admin" ? 
                 <>
                   <Route path="/recruiter" element={<RecruiterExplore/>}/>
                   <Route path="/recruiter/dashboard" element={<RecruiterDashboard/>}/>
