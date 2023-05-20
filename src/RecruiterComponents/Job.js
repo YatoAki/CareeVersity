@@ -5,6 +5,7 @@ import { collection, where, getDocs } from "firebase/firestore";
 import db from "../Firebase";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Job = () => {
   const [data, setData] = useState([]);
@@ -29,6 +30,11 @@ const Job = () => {
   return (
     <div className="Job">
       <Header />
+      <div className="JobHead">
+        <h1>Posted Jobs</h1>
+        <Link to={"/recruiter"}>Go back to Explore</Link>
+      </div>
+      
       <div className="JobCards">
         {data.map((info) => {
             return <JobCard data={info} />

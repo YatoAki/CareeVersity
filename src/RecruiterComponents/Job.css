@@ -48,3 +48,19 @@
     font-weight: 600;
     margin: 5px 0;
 }
+
+.Job .JobHead{
+    text-align: center;
+    margin: 20px 0;
+}
+
+.Job .JobHead h1{
+    font-size: var(--massiveText);
+    font-family: var(--titleFont);
+}
+
+.Job .JobHead a{
+    font-size: var(--normalText);
+    text-decoration: underline;
+    color: var(--blue);
+}
