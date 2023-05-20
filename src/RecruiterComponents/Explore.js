@@ -1,15 +1,40 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import Header from "../UtilityComponents/Header"
+import Logo from "../assets/Logo.png"
 
 const Explore = () => {
   
     const user = useSelector(state => state.authReducer)
-    console.log(user)
-    console.log(user)
 
   return (
-    <div>
-      {user ? <p>User is logged in</p> : <p>User is not logged in</p>}
+    <div className="RecruiterExplore">
+      <Header/>
+      <div className="jobCards">
+        <div className="jobCard">
+          <img src={Logo} alt="" />
+          <h1>Name</h1>
+          <p>This will be bio here</p>
+        </div>
+
+        <div className="jobCard">
+          <img src={Logo} alt="" />
+          <h1>Name</h1>
+          <p>This will be bio here</p>
+        </div>
+
+        <div className="jobCard">
+          <img src={Logo} alt="" />
+          <h1>Name</h1>
+          <p>This will be bio here</p>
+        </div>
+
+        <div className="jobCard">
+          <img src={Logo} alt="" />
+          <h1>Name</h1>
+          <p>This will be bio here</p>
+        </div>
+      </div>
     </div>
   );
 };
