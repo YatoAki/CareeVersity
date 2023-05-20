@@ -34,7 +34,7 @@ const Dashboard = () => {
                     <p>demo text</p>
                 </div>
 
-                <Link to="/recruiter/jobs">See your jobs</Link>
+                <Link to="/recruiter/job">See your jobs</Link>
             </div>
         </div>
     )

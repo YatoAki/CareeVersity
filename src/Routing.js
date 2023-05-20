@@ -6,6 +6,7 @@ import RecruiterSignup from "./RecruiterComponents/Signup"
 import RecruiterExplore from "./RecruiterComponents/Explore"
 import RecruiterLogin from "./RecruiterComponents/Login"
 import RecruiterDashboard from "./RecruiterComponents/Dashboard"
+import RecruiterJob from "./RecruiterComponents/Job"
 
 import JobseekerSignup from "./JobseekerComponents/Signup"
 import JobseekerExplore from "./JobseekerComponents/Explore"
@@ -29,7 +30,7 @@ const Routing = () => {
                 <Route path="/recruiter/signup" element={<RecruiterSignup/>}/>
                 <Route path="/recruiter" element={<RecruiterExplore/>}/>
                 <Route path="/recruiter/dashboard" element={<RecruiterDashboard/>}/>
-                <Route path="/recruiter/job"/>
+                <Route path="/recruiter/job" element={<RecruiterJob/>}/>
             </Routes>
         </BrowserRouter>
     )
