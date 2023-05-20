@@ -30,6 +30,7 @@ const Signup = () => {
     try {
       const docRef = doc(db, "user", uid);
       await setDoc(docRef, { 
+        uid: uid,
         username: formData.orgName, 
         website: formData.website,
         currentLocation: formData.currentLocation,
