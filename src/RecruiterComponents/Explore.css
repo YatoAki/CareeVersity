@@ -1,30 +1,76 @@
-.jobCard{
+.RecruiterExplore .buttonWrap{
     display : flex;
     flex-direction : column;
+    justify-content : center;
+    align-items : center;
+}
+
+.RecruiterExplore .buttons{
+    text-align : center;
+    background-color : var(--blue);
+    margin : 10px;
+    padding : 10px 20px 10px 20px;
+    border-radius : 20px;
+    color : var(--white);
+    font-size : var(--smallText);
+}
+
+.RecruiterExplore .buttons:hover{
+    transform: translateY(-5px);
+    background-color : var(--darkblue);
+}
+
+.RecruiterExplore .updateRequirements{
+    text-align : center;
+    font-size : var(--smallText);
+    color : var(--blue);
+}
+
+.RecruiterExplore .updateRequirements:hover{
+    color : var(--darkblue);
+}
+
+.RecruiterExplore .jobCards{
+    display : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items : center;
+}
+
+.RecruiterExplore .jobCard{
+    display : flex;
+    flex-direction : column;
+    width : 220px;
+    height : 120px;
     align-items : center;
     justify-content : center;
     padding : 20px;
     margin : 20px;
     background-color: var(--white);
     border-radius: 5px;
-    text-decoration: solid ;
 }
 
-.RecruiterExplore img{
+.RecruiterExplore .jobCard:hover{
+    box-shadow : 1px 1px 10px var(--blue);
+}
+
+.RecruiterExplore .profilePic{
     border-radius : 50%;
     object-fit : cover;
     width : 50px;
     height : 50px;
 }
 
-.RecruiterExplore h1{
+.RecruiterExplore .userName{
     text-align : center;
     color : var(--blue);
     font-family : var(--titleFont);
+    font-size : var(--normalText);
 }
 
 .RecruiterExplore p{
     text-align : center;
     color : var(--black);
     font-family : var(--textFont);
+    font-size : var(--smallText);
 }

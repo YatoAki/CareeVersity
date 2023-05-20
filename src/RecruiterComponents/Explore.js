@@ -12,31 +12,33 @@ const Explore = () => {
   return (
     <div className="RecruiterExplore">
       <Header/>
-      <Link>Post</Link>
-      <Link>Go to Dashboard</Link>
-      <p>Update you Requirements to get a perfect employee for you</p>
+      <div className = "buttonWrap">
+        <Link className = "buttons">Post</Link>
+        <Link className = "buttons">Go to Dashboard</Link>
+        <p className = "updateRequirements">Update you Requirements to get a perfect employee for you</p>
+      </div>
       <div className="jobCards">
         <div className="jobCard">
-          <img src={profileIcon} alt="" />
-          <h1>Name</h1>
+          <img className = "profilePic" src={profileIcon} alt="" />
+          <h1 className = "userName">Name</h1>
           <p>This will be bio here</p>
         </div>
 
         <div className="jobCard">
-          <img src={profileIcon} alt="" />
-          <h1>Name</h1>
+          <img className = "profilePic" src={profileIcon} alt="" />
+          <h1 className = "userName">Name</h1>
           <p>This will be bio here</p>
         </div>
 
         <div className="jobCard">
-          <img src={profileIcon} alt="" />
-          <h1>Name</h1>
+          <img className = "profilePic" src={profileIcon} alt="" />
+          <h1 className = "userName">Name</h1>
           <p>This will be bio here</p>
         </div>
 
         <div className="jobCard">
-          <img src={profileIcon} alt="" />
-          <h1>Name</h1>
+          <img className = "profilePic" src={profileIcon} alt="" />
+          <h1 className = "userName">Name</h1>
           <p>This will be bio here</p>
         </div>
       </div>
