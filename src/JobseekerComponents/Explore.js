@@ -17,10 +17,10 @@ const Explore = () => {
     <div className="jobseekerExplore">
       <Header/>
       <div className = "progressWrap">
-        <div className="learningProgress" onClick={handleJobClick}>
+        <div className="learningProgress">
           <h2>Your progress</h2>
           <progress value={20} max="100"></progress>
-          <Link className = "buttons">Continue Learning</Link>
+          <Link to={"./learn"} className = "buttons">Continue Learning</Link>
         </div>
       </div>
       <div className="jobCards">

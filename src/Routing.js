@@ -17,6 +17,7 @@ import JobseekerSignup from "./JobseekerComponents/Signup";
 import JobseekerExplore from "./JobseekerComponents/Explore";
 import JobseekerLogin from "./JobseekerComponents/Login";
 import JobseekerJob from "./JobseekerComponents/Job"
+import JobseekerLearn from "./JobseekerComponents/Learn"
 
 const Routing = () => {
     const dispatch = useDispatch();
@@ -70,7 +71,7 @@ const Routing = () => {
                 <>
                   <Route path='/jobseeker' element={<JobseekerExplore />} />
                   <Route path='/jobseeker/job' element={<JobseekerJob/>} />
-                  <Route path='/jobseeker/learn' />
+                  <Route path='/jobseeker/learn' element={<JobseekerLearn/>}/>
                   <Route path='/jobseeker/learn/:id'/>
                 </>
                 :
