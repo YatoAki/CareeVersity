@@ -1,0 +1,57 @@
+.RecruiterDashboard .wrapper{
+    display : flex;
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+}
+
+
+.RecruiterDashboard .orgProfile{
+    margin : 20px;
+    object-fit : cover;
+    border-radius : 50%;
+    width : 100px;
+    height : 100px;
+}
+
+.RecruiterDashboard h3{
+    text-align : center;
+    font-family : var(--titleFont);
+    font-size : var(--largeText);
+    color : var(--blue);
+}
+
+.RecruiterDashboard .RecruiterDetails{
+    margin : 20px 5px;
+    display : grid;
+    grid-template-columns: 1fr 1fr;
+    align-items : center;
+}
+
+.RecruiterDashboard .RecruiterDetails h3{
+    color : var(--black);
+    font-family : var(--textFont);
+    font-size : var(--normalText);
+    padding : 5px 10px;
+}
+
+.RecruiterDashboard .RecruiterDetails p{
+    padding : 5px 10px;
+    font-family : var(--textFont);
+    font-size : var(--normalText);
+}
+
+.RecruiterDashboard .buttons{
+    text-align : center;
+    background-color : var(--blue);
+    margin : 10px;
+    padding : 10px 20px 10px 20px;
+    border-radius : 20px;
+    color : var(--white);
+    font-size : var(--smallText);
+}
+
+.RecruiterDashboard .buttons:hover{
+    transform: translateY(-5px);
+    background-color : var(--darkblue);
+}

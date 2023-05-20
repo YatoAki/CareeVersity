@@ -1,0 +1,40 @@
+.Job .JobCards{
+    display : flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Job .JobCard{
+    display : flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin : 10px;
+    background-color: var(--white);
+    border-radius: 20px;
+    width : 80%;
+    max-width : 300px;
+    height : 150px;
+    padding : 10px 20px;
+}
+
+.Job .JobCard:hover{
+    box-shadow : 0px 0px 10px var(--blue);
+}
+
+.Job .JobCard h3{
+    font-family: var(--titleFont);
+    Color : var(--blue);
+}
+
+.Job .JobCard p, ul{
+    font-family: var(--textFont);
+    font-size: var(--normalText);
+}
+
+.Job .JobCard ul{
+    display : flex;
+    flex-direction: column;
+    width : 100%;
+}
