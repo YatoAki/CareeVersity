@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/CareeVersity/static/css/main.7c17419d.css",
+    "main.js": "/CareeVersity/static/js/main.68d05b25.js",
+    "static/media/profileIcon.avif": "/CareeVersity/static/media/profileIcon.3911574a9da9dab4d1c8.avif",
+    "index.html": "/CareeVersity/index.html",
+    "main.7c17419d.css.map": "/CareeVersity/static/css/main.7c17419d.css.map",
+    "main.68d05b25.js.map": "/CareeVersity/static/js/main.68d05b25.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7c17419d.css",
+    "static/js/main.68d05b25.js"
+  ]
+}
