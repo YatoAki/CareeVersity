@@ -13,3 +13,10 @@ export const logout = () => {
         type: "logout"
     }
 }
+
+export const setUserData = (data) => {
+    return{
+        type: "set",
+        payload: data
+    }
+}

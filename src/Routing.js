@@ -2,7 +2,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
-import { login } from "./actions/index";
+import { login,setUserData } from "./actions/index";
+import db from './Firebase';
+import { getFirestore, collection, doc, getDoc } from 'firebase/firestore';
 
 import Home from './HomeComponents/Home';
 import RecruiterSignup from "./RecruiterComponents/Signup";
@@ -20,17 +22,34 @@ const Routing = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const auth = getAuth();
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                dispatch(login(user.uid));
+      const auth = getAuth();
+      const unsubscribe = onAuthStateChanged(auth, async (user) => {
+        if (user) {
+          dispatch(login(user.uid));
+  
+          try {
+            const userRef = doc(collection(db, 'user'), user.uid);
+            const docSnapshot = await getDoc(userRef);
+            if (docSnapshot.exists()) {
+              const userData = docSnapshot.data();
+              console.log(userData);
+              dispatch(setUserData(userData));
+            } else {
+              console.log('No user data found!');
             }
+  
             setLoading(false);
-        });
-
-        // Clean up the listener when the component unmounts
-        return () => unsubscribe();
-    }, []);
+          } catch (error) {
+            console.log('Error retrieving user data:', error);
+          }
+        } else {
+          setLoading(false);
+        }
+      });
+  
+      // Clean up the listener when the component unmounts
+      return () => unsubscribe();
+    }, [dispatch]);
 
     if (loading) {
         // Render a loading state until the authentication state is restored
