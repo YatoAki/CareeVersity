@@ -28,7 +28,7 @@ const Signup = () => {
 
   const keepUserData = async (uid) => {
     try {
-      const docRef = doc(db, "Recruiter", uid);
+      const docRef = doc(db, "user", uid);
       await setDoc(docRef, { 
         orgName: formData.orgName, 
         website: formData.website,

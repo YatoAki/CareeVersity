@@ -28,7 +28,7 @@ const Signup = () => {
 
   const keepUserData = async (uid) => {
     try {
-      const docRef = doc(db, "JobSeeker", uid);
+      const docRef = doc(db, "user", uid);
       await setDoc(docRef, { 
         username: formData.username, 
         dateOfBirth: formData.dateOfBirth,
