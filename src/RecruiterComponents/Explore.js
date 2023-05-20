@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Header from "../UtilityComponents/Header"
 import Logo from "../assets/Logo.png"
+import "./Explore.css"
 
 const Explore = () => {
   
