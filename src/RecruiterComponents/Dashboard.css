@@ -15,17 +15,21 @@
 }
 
 .RecruiterDashboard h3{
-    text-align : center;
     font-family : var(--titleFont);
     font-size : var(--largeText);
     color : var(--blue);
 }
+.RecruiterDashboard .RecruiterName{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 .RecruiterDashboard .RecruiterDetails{
     margin : 20px 5px;
     display : grid;
     grid-template-columns: 1fr 1fr;
-    align-items : center;
 }
 
 .RecruiterDashboard .RecruiterDetails h3{
