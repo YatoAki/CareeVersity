@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { collection, getDocs, query, where } from "@firebase/firestore";
 import db from '../Firebase';
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Job = () => {
 
@@ -35,7 +36,7 @@ const Job = () => {
             <Header/>
             <div className="jobCard">
                 <img src={profileIcon} alt="" />
-                <h3>{data.username}</h3>
+                <h3 className="title">{data.username}</h3>
                 <div className="jobDetails">
                     <h3>Organization Type : </h3>
                     <p>{data.companySize}</p>
@@ -66,6 +67,7 @@ const Job = () => {
                     <h2>Required Course</h2>
                     <Slider/>
                 </div>
+                <Link to="/jobseeker">Back to explore</Link>
             </div>
         </div>
     )
