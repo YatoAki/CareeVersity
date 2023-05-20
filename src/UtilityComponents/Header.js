@@ -3,10 +3,12 @@ import Logo from "../assets/Logo.png"
 import nav from "../assets/nav.png"
 import { Link } from "react-router-dom"
 import { useState,useEffect } from "react"
+import { useSelector } from "react-redux"
 
 const Header = () => {
 
     const [view, setView] = useState(false)
+    const user = useSelector(state => state.authReducer)
 
     const handleMenuClick = () => {
         setView(!view)
@@ -21,6 +23,7 @@ const Header = () => {
             hamburger.classList.remove("appear")
         }
     },[view])
+
     
 
     return(
@@ -31,6 +34,7 @@ const Header = () => {
             </Link>
             <button id="menu" onClick={handleMenuClick}><img src={nav} alt="" /></button>
             <ul className="popUpNav">
+                {user ? <p>user id is {user.user}</p> : <p>Here is</p>}
                 <Link to=""><li>Contact us</li></Link>
                 <Link to=""><li>About us</li></Link>
                 <Link to=""><li>Partners</li></Link>
