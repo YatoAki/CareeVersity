@@ -4,10 +4,30 @@ import Header from "../UtilityComponents/Header"
 import profileIcon from "../assets/profileIcon.avif"
 import "./Explore.css"
 import { Link } from "react-router-dom";
+import { collection, getDocs, query, where } from "@firebase/firestore";
+import db from "../Firebase";
+import { useState, useEffect } from "react";
+import JobSeekerCard from "./JobseekerCard";
 
 const Explore = () => {
   
-    const user = useSelector(state => state.authReducer)
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+      loadData();
+    }, []); // Empty dependency array ensures the effect runs only once, similar to componentDidMount
+  
+    const loadData = async () => {
+      try {
+        const q = query(collection(db, "user"), where("type", "==", "jobseeker"));
+        const querySnapshot = await getDocs(q);
+        const fetchedData = querySnapshot.docs.map((doc) => doc.data());
+        console.log(fetchedData)
+        setData(fetchedData);
+      } catch (error) {
+        console.error("Error fetching job data:", error);
+      }
+    };
 
   return (
     <div className="RecruiterExplore">
@@ -18,29 +38,10 @@ const Explore = () => {
         <p className = "updateRequirements">Update you Requirements to get a perfect employee for you</p>
       </div>
       <div className="jobCards">
-        <div className="jobCard">
-          <img className = "profilePic" src={profileIcon} alt="" />
-          <h1 className = "userName">Name</h1>
-          <p>This will be bio here</p>
-        </div>
+        {data.map((info) => {
+          return <JobSeekerCard data={info}/>
+        })}
 
-        <div className="jobCard">
-          <img className = "profilePic" src={profileIcon} alt="" />
-          <h1 className = "userName">Name</h1>
-          <p>This will be bio here</p>
-        </div>
-
-        <div className="jobCard">
-          <img className = "profilePic" src={profileIcon} alt="" />
-          <h1 className = "userName">Name</h1>
-          <p>This will be bio here</p>
-        </div>
-
-        <div className="jobCard">
-          <img className = "profilePic" src={profileIcon} alt="" />
-          <h1 className = "userName">Name</h1>
-          <p>This will be bio here</p>
-        </div>
       </div>
     </div>
   );

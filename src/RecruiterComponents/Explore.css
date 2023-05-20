@@ -49,6 +49,7 @@
     margin : 20px;
     background-color: var(--white);
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .RecruiterExplore .jobCard:hover{

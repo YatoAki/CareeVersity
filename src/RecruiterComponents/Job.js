@@ -1,7 +1,8 @@
 import "./Job.css";
 import Header from "../UtilityComponents/Header";
 import JobCard from "./JobCard";
-import { collection, where, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "@firebase/firestore";
+
 import db from "../Firebase";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -17,9 +18,8 @@ const Job = () => {
 
   const loadData = async () => {
     try {
-      const query = where("userID", "==", auth.user);
-      const jobData = collection(db, "job");
-      const querySnapshot = await getDocs(jobData);
+      const q = query(collection(db, "job"), where("userID", "==", auth.user));
+      const querySnapshot = await getDocs(q);
       const fetchedData = querySnapshot.docs.map((doc) => doc.data());
       setData(fetchedData);
     } catch (error) {
