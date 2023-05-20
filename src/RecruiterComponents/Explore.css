@@ -44,7 +44,7 @@
     max-width : 300px;
     height : 120px;
     align-items : center;
-    justify-content : center;
+    justify-content : space-evenly;
     padding : 20px 30px;
     margin : 20px;
     background-color: var(--white);
@@ -58,8 +58,8 @@
 .RecruiterExplore .profilePic{
     border-radius : 50%;
     object-fit : cover;
-    width : 50px;
-    height : 50px;
+    width : 70px;
+    height : 70px;
 }
 
 .RecruiterExplore .userName{
