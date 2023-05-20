@@ -1,0 +1,44 @@
+.Post .inputArea form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.Post .inputArea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Post h2{
+    font-family: var(--titleFont);
+    margin: 50px 0;
+}
+
+.Post .inputArea button{
+    margin: 20px 0;
+    background-color: var(--blue);
+    font-family: inherit;
+
+    border: none;
+    border-radius: 5px;
+    padding: 10px 0;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.Post .inputArea input{
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.Post .inputArea textarea{
+    border: none;
+    padding: 5px 10px;
+    height: 100px;
+    border-radius: 5px;
+    margin: 5px 0;
+    font-family: inherit;
+}
