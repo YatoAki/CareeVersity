@@ -48,11 +48,12 @@
 
 .homeBtns .homeBtn:hover{
     transform: translateY(-5px);
+    box-shadow : 0px 0px 10px var(--blue);
 }
 
 
 .homeBtn span{
-    font-size: var(--smallText);
+    font-size: var(--normalText);
     font-weight: 600;
     text-align: center;
 }

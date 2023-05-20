@@ -1,0 +1,91 @@
+.jobseekerExplore .progressWrap{
+    display : flex;
+    flex-direction : column;
+    justify-content : space-between;
+    align-items : center;
+}
+
+.jobseekerExplore .learningProgress{
+    background-color : var(--white);
+    padding : 5px 20px;
+    margin : 10px;
+    width : 80%;
+    max-width : 300px;
+    height : 100px;
+    border-radius : 10px;
+    display : flex;
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+}
+
+.jobseekerExplore progress{
+    width : 90%;
+}
+
+.jobseekerExplore .buttons{
+    text-align : center;
+    background-color : var(--blue);
+    margin : 10px;
+    padding : 10px 20px 10px 20px;
+    border-radius : 20px;
+    color : var(--white);
+    font-size : var(--smallText);
+}
+
+.jobseekerExplore .buttons:hover{
+    transform: translateY(-5px);
+    background-color : var(--darkblue);
+}
+
+.jobseekerExplore h2{
+    font-family : var(--textFont);
+    font-size : var(--normalText);
+}
+
+
+.jobseekerExplore .jobCards{
+    display : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items : center;
+}
+
+.jobseekerExplore .jobCard{
+    display : flex;
+    flex-direction : column;
+    width : 70%;
+    max-width : 300px;
+    height : 120px;
+    align-items : center;
+    justify-content : center;
+    padding : 20px 30px;
+    margin : 5px;
+    background-color: var(--white);
+    border-radius: 10px;
+}
+
+.jobseekerExplore .jobCard:hover{
+    box-shadow : 1px 1px 10px var(--blue);
+}
+
+.jobseekerExplore .profilePic{
+    border-radius : 50%;
+    object-fit : cover;
+    width : 50px;
+    height : 50px;
+}
+
+.jobseekerExplore .userName{
+    text-align : center;
+    color : var(--blue);
+    font-family : var(--titleFont);
+    font-size : var(--normalText);
+}
+
+.jobseekerExplore p{
+    text-align : center;
+    color : var(--black);
+    font-family : var(--textFont);
+    font-size : var(--smallText);
+}

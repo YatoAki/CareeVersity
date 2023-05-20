@@ -40,14 +40,15 @@
 .RecruiterExplore .jobCard{
     display : flex;
     flex-direction : column;
-    width : 220px;
+    width : 70%;
+    max-width : 300px;
     height : 120px;
     align-items : center;
     justify-content : center;
-    padding : 20px;
+    padding : 20px 30px;
     margin : 20px;
     background-color: var(--white);
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .RecruiterExplore .jobCard:hover{
