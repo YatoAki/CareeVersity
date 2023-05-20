@@ -16,6 +16,7 @@ import RecruiterJob from "./RecruiterComponents/Job";
 import JobseekerSignup from "./JobseekerComponents/Signup";
 import JobseekerExplore from "./JobseekerComponents/Explore";
 import JobseekerLogin from "./JobseekerComponents/Login";
+import JobseekerJob from "./JobseekerComponents/Job"
 
 const Routing = () => {
     const dispatch = useDispatch();
@@ -68,14 +69,14 @@ const Routing = () => {
                 {type === "jobseeker" || "admin" ? 
                 <>
                   <Route path='/jobseeker' element={<JobseekerExplore />} />
-                  <Route path='/jobseeker/job' />
+                  <Route path='/jobseeker/job' element={<JobseekerJob/>} />
                   <Route path='/jobseeker/learn' />
                   <Route path='/jobseeker/learn/:id'/>
                 </>
                 :
                 <>
                   <Route path='/jobseeker' element={<JobseekerLogin />} />
-                  <Route path='/jobseeker/job' />
+                  <Route path='/jobseeker/job'/>
                   <Route path='/jobseeker/learn' />
                   <Route path='/jobseeker/learn/:id'/>
                 </>
