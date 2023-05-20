@@ -14,7 +14,7 @@ const Explore = () => {
       <Header/>
       <div className = "buttonWrap">
         <Link className = "buttons">Post</Link>
-        <Link className = "buttons">Go to Dashboard</Link>
+        <Link className = "buttons" to={"/recruiter/dashboard"}>Go to Dashboard</Link>
         <p className = "updateRequirements">Update you Requirements to get a perfect employee for you</p>
       </div>
       <div className="jobCards">

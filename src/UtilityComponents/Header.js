@@ -34,7 +34,7 @@ const Header = () => {
             </Link>
             <button id="menu" onClick={handleMenuClick}><img src={nav} alt="" /></button>
             <ul className="popUpNav">
-                {user ? <p>user id is {user.user}</p> : <p>Here is</p>}
+                {user ? <p>Welcome {user.user}</p> : <Link to="/login"><li>Login</li></Link>}
                 <Link to=""><li>Contact us</li></Link>
                 <Link to=""><li>About us</li></Link>
                 <Link to=""><li>Partners</li></Link>
