@@ -1,0 +1,7 @@
+.JobseekerLearn h3{
+    font-family: var(--titleFont);
+    font-size : var(--bigText);
+    color : var(--blue);
+    margin : 5px 0px;
+    text-align: center;    
+}

@@ -26,9 +26,9 @@ const AboutJobApplicants = (props) => {
   };
 
   return (
-    <div>
+    <div className = "AboutJobApplicants">
         <h3>Applied</h3>
-        <ul>
+        <ul className = "namelist">
         {data ? 
         data.map((info) => {
             return(

@@ -5,6 +5,7 @@ import db from "../Firebase";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import AboutJobApplicants from "./AboutJobApplicants";
+import "./AboutJob.css"
 
 const AboutJob = () => {
 
@@ -32,16 +33,17 @@ const AboutJob = () => {
 
         <div className="AboutJob">
             <Header/>
+            <div className = "wrapper">
             <div className="JobCard" >
-                <h3>{data.jobTitle}</h3>
+                <h3 className = "jobtitle">{data.jobTitle}</h3>
                 <div className="info">
-                    <p>{data.salaryRange}</p>
-                    <p>{data.workingHours}</p>
+                    <p className = "infoText">{data.salaryRange}</p>
+                    <p className = "infoText">{data.workingHours}</p>
                 </div>
-                <p>{data.jobDescription}</p>
-                <p>{data.benefits}</p>
+                <p className = "infoText">{data.jobDescription}</p>
+                <p className = "infoText">{data.benefits}</p>
                 
-                <ul>
+                <ul className = "infoText">
                     {data.selectedTech ?
                         data.selectedTech.map((name) => {
                         return <li key={name.value}>{name.value}</li>
@@ -49,6 +51,7 @@ const AboutJob = () => {
                         : null
                     }   
                 </ul>
+            </div>
             </div>
             <AboutJobApplicants info={data.applied}/>
         </div>
