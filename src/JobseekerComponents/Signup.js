@@ -17,6 +17,7 @@ const Signup = () => {
     dateOfBirth: "",
     currentLocation: "",
     role: "",
+    bio: "", 
     nrcNumber: "",
   };
 
@@ -36,7 +37,8 @@ const Signup = () => {
         currentLocation: formData.currentLocation,
         role: formData.role,
         nrcNumber: formData.nrcNumber,
-        type: "jobseeker"
+        type: "jobseeker",
+        bio: formData.bio
       });
       console.log("Document successfully written!");
       navigate('/jobseeker');
@@ -149,6 +151,14 @@ const Signup = () => {
               <option value="Fullstack">Fullstack Developer</option>
               <option value="Devops">Devops engineer</option>
             </select>
+
+            <label htmlFor="bio">Bio :</label>
+            <textarea
+              id="bio"
+              name="bio"
+              value={formData.bio}
+              onChange={handleChange}
+            />
 
             <label htmlFor="nrcNumber">NRC Number :</label>
             <input
