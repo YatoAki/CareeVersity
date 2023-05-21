@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Select from 'react-select'
 import { useSelector } from "react-redux"
 import db from "../Firebase";
-import {  collection, addDoc } from "@firebase/firestore"
+import {  collection, doc, setDoc } from "@firebase/firestore"
 import { useNavigate } from "react-router-dom"
 
 const Post = () => {
@@ -55,24 +55,39 @@ const Post = () => {
 
   const saveData = async () => {
     try {
-        const docRef = collection(db, "job");
-        await addDoc(docRef, { 
-          username: user.data.username,
-          userID: auth.user,
-          companySize: user.data.companySize,
-          jobTitle: jobTitle,
-          salaryRange: salaryRange,
-          workingHours: workingHours,
-          benefits: benefits,
-          selectedTech: selectedTech,
-          jobDescription: jobDescription
-        });
-        navigate("/recruiter/job")
-        console.log("Document successfully written!");
-      } catch (error) {
-        console.error("Error writing document:", error);
-      }
-  }
+      const docRef = doc(collection(db, "job")); // Create a new document reference without an ID
+      const newDoc = {
+        uid: "", // Placeholder for the generated ID
+        username: user.data.username,
+        userID: auth.user,
+        companySize: user.data.companySize,
+        jobTitle: jobTitle,
+        salaryRange: salaryRange,
+        workingHours: workingHours,
+        benefits: benefits,
+        selectedTech: selectedTech,
+        jobDescription: jobDescription
+      };
+  
+      // Add the document without an ID
+      await setDoc(docRef, newDoc);
+  
+      const docId = docRef.id; // Get the generated ID
+  
+      // Update the newDoc with the generated ID
+      newDoc.uid = docId;
+  
+      // Upload the updated newDoc with the ID included
+      await setDoc(docRef, newDoc);
+  
+      navigate("/recruiter/job");
+      console.log("Document ID:", docId);
+      console.log("Document successfully written!");
+    } catch (error) {
+      console.error("Error writing document:", error);
+    }
+  };
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
