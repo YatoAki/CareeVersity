@@ -21,16 +21,13 @@ const Job = () => {
       const docRef = doc(db, "job", id);
       const docSnapshot = await getDoc(docRef);
       const jobData = docSnapshot.data();
-      console.log(jobData);
       
       const appliedIds = jobData.applied || []; // Get existing applied ids or initialize as empty array
       const updatedIds = [...new Set([...appliedIds, auth.user])]; // Append uid to existing applied ids
-      console.log(updatedIds);
       
       await updateDoc(docRef, { applied: updatedIds });
 
       setData((prevData) => ({ ...prevData, applied: updatedIds }));
-      console.log(data);
     } catch (error) {
       console.error("Error updating job data:", error);
     }
@@ -86,7 +83,12 @@ const Job = () => {
           </ul>
 
           <h3>Apply:</h3>
-          <button onClick={handleApply}>Apply</button>
+          {
+            data.applied && data.applied.includes(auth.user) ?
+            <button disabled>Applied</button> :
+            <button onClick={handleApply}>Apply</button>
+          }
+          
         </div>
         <div className="requiredCourses">
           <h2>Required Course</h2>
