@@ -14,6 +14,7 @@ import RecruiterDashboard from "./RecruiterComponents/Dashboard";
 import RecruiterJob from "./RecruiterComponents/Job";
 import RecruiterPost from "./RecruiterComponents/Post"
 import JobseekerProfile from './RecruiterComponents/JobseekerProfile';
+import AboutJob from './RecruiterComponents/AboutJob';
 
 import JobseekerSignup from "./JobseekerComponents/Signup";
 import JobseekerExplore from "./JobseekerComponents/Explore";
@@ -94,6 +95,7 @@ const Routing = () => {
                   <Route path="/recruiter" element={<RecruiterExplore/>}/>
                   <Route path="/recruiter/dashboard" element={<RecruiterDashboard/>}/>
                   <Route path="/recruiter/job" element={<RecruiterJob/>}/>
+                  <Route path="/recruiter/job/:id" element={<AboutJob/>}/>
                   <Route path="/recruiter/job/post" element={<RecruiterPost/>}/>
                 </>
                 :

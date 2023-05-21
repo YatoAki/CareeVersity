@@ -1,9 +1,16 @@
 import React from "react"
+import { useNavigate } from "react-router-dom"
 
 const JobCard = (props) =>{
 
+    const navigate = useNavigate()
+
+    const handleClick = () => {
+        navigate("./"+props.data.uid)
+    }
+
     return(
-        <div className="JobCard">
+        <div className="JobCard" onClick={handleClick}>
             <h3>{props.data.jobTitle}</h3>
             <div className="info">
                 <p>{props.data.salaryRange}</p>
